@@ -1,0 +1,175 @@
+
+POST http://localhost:5000/api/auth/register 
+Content-Type: application/json
+
+{
+    "username": "tampq",
+    "email": "tampq@gmail.com",
+    "password": "tampq123",
+    
+}
+
+###
+
+POST http://localhost:5000/api/auth/login 
+Content-Type: application/json
+
+{
+    "email": "tampq@gmail.com",
+    "password": "tampq123"
+}
+
+
+###
+### USER
+
+GET http://localhost:5000/api/users/614c3558e5a4faff690b5eff
+
+###
+
+GET http://localhost:5000/api/users?username=pqtam
+
+###
+
+GET http://localhost:5000/api/users/614c5d32e0874e1fa39ccc93
+
+###
+
+PUT http://localhost:5000/api/users/614c5d32e0874e1fa39ccc93
+Content-Type: application/json
+
+{
+   "profilePicture": "person/1.jpeg",
+   "userId": "614c5d32e0874e1fa39ccc93"
+}
+
+###
+
+PUT http://localhost:5000/api/users/615438b54b1264b05f4820db/follow
+Content-Type: application/json
+
+{
+   "userId": "614c5d32e0874e1fa39ccc93"
+}
+###
+
+PUT http://localhost:5000/api/users/614c5d32e0874e1fa39ccc93/unfollow
+Content-Type: application/json
+
+{
+   "userId": "614c3558e5a4faff690b5eff"
+}
+###
+
+DELETE http://localhost:5000/api/users/614c3558e5a4faff690b5eff
+Content-Type: application/json
+
+{
+    "userId": "614c3558e5a4faff690b5eff"
+}
+
+###
+### POST
+
+GET http://localhost:5000/api/posts/614c5d32e0874e1fa39ccc93
+
+###
+
+POST http://localhost:5000/api/posts 
+Content-Type: application/json
+
+{
+    "userId": "6151d5ad8cf2cdf70715bb90",
+    "desc": "my post 2 from tampq lan thu 2",
+    "img": "post/2.jpeg"
+}
+
+###
+PUT http://localhost:5000/api/posts/614d7e9f2e0c16518dc6384b
+Content-Type: application/json
+
+{
+   "userId": "614c5d32e0874e1fa39ccc93",
+   "desc": "i updated my post pqtam",
+   "img": "post/4.jpeg"
+}
+
+###
+
+DELETE  http://localhost:5000/api/posts/614c9e3ac50845c2d0990ffd
+Content-Type: application/json
+
+{
+   "userId": "614c3558e5a4faff690b5eff"
+}
+
+###
+PUT http://localhost:5000/api/posts/614d7e9f2e0c16518dc6384b/like
+Content-Type: application/json
+
+{
+   "userId": "6151d5ad8cf2cdf70715bb90"
+}
+
+###
+
+GET http://localhost:5000/api/posts/timeline/all
+Content-Type: application/json
+
+{
+   "userId": "614c3558e5a4faff690b5eff"
+}
+
+###
+GET http://localhost:5000/api/posts/profile/pqtam
+Content-Type: application/json
+
+{
+   "userId": "614c3558e5a4faff690b5eff"
+}
+
+### 
+POST http://localhost:5000/api/upload
+Content-Type: multipart/form-data
+
+###
+GET http://localhost:5000/api/users/friends/614c5d32e0874e1fa39ccc93
+Content-Type: application/json
+
+{
+   "userId": "614c3558e5a4faff690b5eff"
+}
+
+###
+
+# Conversation
+POST http://localhost:5000/api/conversations
+Content-Type: application/json
+
+{
+   "senderId": "614c5d32e0874e1fa39ccc93",
+   "receiverId": "615438b54b1264b05f4820db"
+}
+
+###
+GET http://localhost:5000/api/conversations/614c5d32e0874e1fa39ccc93
+Content-Type: application/json
+
+###
+
+# Message
+POST  http://localhost:5000/api/message/
+Content-Type: application/json
+
+{
+   "conversationId": "6158143408faede9b2631a31",
+   "sender": "614c5d32e0874e1fa39ccc93",
+   "text": "Hello i am pqtam nha"
+}
+
+###
+GET http://localhost:5000/api/messages/6158143408faede9b2631a31
+
+
+###
+GET http://localhost:5000/api/users?userId=615438b54b1264b05f4820db
